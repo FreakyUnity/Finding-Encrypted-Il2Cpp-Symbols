@@ -1,4 +1,4 @@
-import json, string
+import json
 
 goodRefs = open("good.txt", "r").read().splitlines()
 badRefs = open("bad.txt", "r").read().splitlines()
