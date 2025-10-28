@@ -47,6 +47,18 @@ def DumpToDumperFile(data: dict):
         txt += "#define symbol_{} \"{}\"\n".format(key, data[key])
 
     with open("Il2Cpp-Headers.hpp", "w") as f:
+            f.write(txt)
+
+def DumpToFridaMap(data: dict):
+    txt = "Il2Cpp.$config.exports = {\n"
+
+    for key in list(data.keys()):
+        value = data[key]
+        txt += f"\t{key}: () => Il2Cpp.module.findExportByName(\"{value}\"),\n"
+
+    txt += "};"
+
+    with open("Frida-Map.js", "w") as f:
         f.write(txt)
 
 goods = GetCodeLines(goodRefs)
@@ -66,6 +78,6 @@ for i in range(len(goods)):
 with open("SymbolMap.json", "w") as f:
     json.dump(symbolDict, f, indent = 2)
 
-# not really needed but are kinda useful :)
 DumpToBNMFile(symbolDict)
 DumpToDumperFile(symbolDict)
+DumpToFridaMap(symbolDict)
