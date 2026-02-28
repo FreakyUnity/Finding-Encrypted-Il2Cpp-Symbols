@@ -36,7 +36,10 @@ if you only want to use the libunity.so file, just go to strings and scroll unti
 
 then double click
 
-if should bring you to a screen with the string, there should be only one xref, double click the xref / the sub_... and press F5 (windows & ida-pro only), Ctrl+A and Ctrl+C the contents, and put that into bad.txt
+if should bring you to a screen with the string, there should be only one xref, double click the xref / the sub_... and press F5 (windows & ida-pro only) or just do what the image below shows, Ctrl+A and Ctrl+C the contents, and put that into bad.txt
+
+![image](images/image.png)
+
 
 # Final step
 
